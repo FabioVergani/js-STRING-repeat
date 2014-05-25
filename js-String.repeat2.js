@@ -13,11 +13,13 @@ function eachKey(o,f){return Array.Consume(Object.keys(o),f)};
 
 //#
 Object.refill.by(String.prototype,{
- repeat:function(n){var s=this;if(s!==null && n>0){var t='';while(n>0){if(n%2===1){t+=s};s+=s;n>>=1};s=t};return s}//,...
+ repeat:function(n){var s=this;if(s!==null && n>0 && isFinite(n)){var t='';while(n>0){if(n%2===1){t+=s};s+=s;n>>=1};s=t};return s}//,...
 });
 
+//#
 
 console.log("6".repeat(3));
+
 
 
 
