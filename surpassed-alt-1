@@ -1,0 +1,30 @@
+(function(o,p){
+ var f,e=o[p];
+ if(e){
+	f=function(s,n){return s.repeat(n)}
+ }else{
+	f=function(s,n){n=parseInt(n,10);if(isNaN(n)){n=0};return new Array(n+1).join(s)};
+	o[p]=function(n){return f(this,n)}
+ };
+ String.repeat=function(s,n){return f(s,n)};
+})(String.prototype,'repeat');
+
+console.log('#1',"w".repeat(3));
+console.log('#2',String.repeat('w',3));
+console.log('#2',String.repeat('-','12'));
+console.log('#2',String.repeat('1',3));
+console.log('#2',String.repeat(true,3));
+console.log('#2',String.repeat(-1,3));
+console.log('#2',String.repeat(0,3));
+console.log('#2',String.repeat({},3));
+
+/*
+#1 www my_print-r.js:81
+#2 www my_print-r.js:82
+#2 ------------ my_print-r.js:83
+#2 111 my_print-r.js:84
+#2 truetruetrue my_print-r.js:85
+#2 -1-1-1 my_print-r.js:86
+#2 000 my_print-r.js:87
+#2 [object Object][object Object][object Object]
+*/
