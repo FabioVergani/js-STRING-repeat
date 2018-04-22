@@ -1,20 +1,13 @@
-/*
-bad:
-const repeat=(a,b)=>{
-	let n=b,s='';
-	if(n!==0 && a.length && n>0 && (s=typeof n,n=Math.floor(s!=='number'?Number(n):n))>=1){
-		s=268435455;
-		s=Array((n<s?n:s)+1).join(a);
+const repeat=(w=>{
+	const f=w.Math.floor,n=268435456;
+	return (a,b)=>{
+		const i=a.length?f(b):0;
+		return i>=1?(Array(i<n?i+1:n).join(a)):'';
 	};
-	return s;
-};
-*/
+})(window);
 
-const repeat=(a,b)=>{
-	const n=a.length?Math.floor(b):0;
-	return n>=1?(Array(n<268435455?n+1:268435455).join(a)):'';
-};
 
+console.clear();
 console.log(repeat('',2));//''
 console.log(repeat('abc'));//''
 console.log(repeat('abc',-1));//''
