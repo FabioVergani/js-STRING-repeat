@@ -1,0 +1,16 @@
+const repeat=function(a,b){
+	let s='',n=b;
+	if(n!==0 && a.length && n && (n=Math.floor(typeof n!=='number'?Number(n):n))>=1){
+		s=268435455;
+		s=Array((n<s?n:s)+1).join(a);
+	};
+	return s;
+};
+
+console.log(repeat('',2));//''
+console.log(repeat('abc'));//''
+console.log(repeat('abc',-1));//''
+console.log(repeat('abc',0)); //''
+console.log(repeat('abc',1));//'abc'
+console.log(repeat('abc',2));//'abcabc'
+console.log(repeat('abc',3.5));//'abcabcabc'
