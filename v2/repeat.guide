@@ -1,8 +1,8 @@
 const repeat=(w=>{
-	const f=w.Math.floor,n=268435456;
+	const f=w.Array,g=w.Math.floor,j=268435456;
 	return (a,b)=>{
-		const i=a.length?f(b):0;
-		return i>=1?(Array(i<n?i+1:n).join(a)):'';
+		const i=a.length?g(b):0;
+		return i>=1?(f(i<j?i+1:j).join(a)):'';
 	};
 })(window);
 
