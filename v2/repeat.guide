@@ -1,6 +1,6 @@
-const repeat=function(a,b){
-	let s='',n=b;
-	if(n!==0 && a.length && n && (n=Math.floor(typeof n!=='number'?Number(n):n))>=1){
+const repeat=(a,b)=>{
+	let n=b,s='';
+	if(n!==0 && a.length && n>0 && (s=typeof n,n=Math.floor(s!=='number'?Number(n):n))>=1){
 		s=268435455;
 		s=Array((n<s?n:s)+1).join(a);
 	};
