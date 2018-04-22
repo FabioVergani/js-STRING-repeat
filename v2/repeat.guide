@@ -1,3 +1,5 @@
+/*
+bad:
 const repeat=(a,b)=>{
 	let n=b,s='';
 	if(n!==0 && a.length && n>0 && (s=typeof n,n=Math.floor(s!=='number'?Number(n):n))>=1){
@@ -5,6 +7,12 @@ const repeat=(a,b)=>{
 		s=Array((n<s?n:s)+1).join(a);
 	};
 	return s;
+};
+*/
+
+const repeat=(a,b)=>{
+	const n=a.length?Math.floor(b):0;
+	return n>=1?(Array(n<268435455?n+1:268435455).join(a)):'';
 };
 
 console.log(repeat('',2));//''
