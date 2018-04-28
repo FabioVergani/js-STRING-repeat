@@ -4,9 +4,18 @@
 	(o=>{
 		if(!exist(o,'repeat','function')){
 			o.repeat=function(n){
-				var i=n>>0,s=this;
-				const l=s.length;
-				if(i===0||l<1){s=''}else{const j=268435456;if(i<0||i>=j||i*l>j){throw new RangeError('Invalid count value')}else if(i>0){s=A(++i).join(s)}};
+				var i=n>>0,s='';
+				if(i!==0){
+					let t=this;
+					const l=t.length;
+					if(l!==0){
+						if(i<0||i>=(t=268435456)||i*l>t){
+							throw new RangeError('Invalid count value');
+						}else if(i>0){
+							s=A(++i).join(t);
+						};
+					};
+				};
 				return s;
 			};
 		};
@@ -17,7 +26,9 @@
 
 
 
-/*
+
+
+/**/
 console.clear();
 
 console.log(
@@ -45,4 +56,3 @@ console.log(
 'abc'.repeat(-1)//RangeError: Invalid count value
 );
 
-*/
