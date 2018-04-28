@@ -1,30 +1,32 @@
 'use strict';
-(function(w) {
- var A=w.Array,S=w.String,exist=function(a,b,c){return b in a && typeof(a[b])===c};
+(function(win){
 
- (function(o) {
+ var typeOf=(function(w){var f=function f(x){return typeof(x)},o=w.Symbol,p;if(o && typeof(o)==='function' && typeof(o.iterator)==='symbol'){p=o.prototype;f=function(x){return x && x.constructor===o && x!==p?'symbol':typeof x}};return f})(win),
+ exist=function(o,p,t){return p in o && typeOf(o[p])===t};
+
+ (function(w){
+	var o=w.String.prototype;
 	if(!exist(o,'repeat','function')){
-		o.repeat=function(n){
-			var i=n>>0,s=this,l=s.length,j;
-			if(i===0||l<1){
-				s='';
-			}else{
-				j=268435456;
-				if(i<0||i>=j||i*l>j){//console.info(i);
-					throw new RangeError('Invalidcountvalue');
-				}else if(i>0){
-					s=A(++i).join(s);
-				}
+		o.repeat=(function(A,E){
+			return function(n){
+				var i=n>>0,s=this,l=s.length,j;
+				if(i===0||l<1){s=''}else{
+					j=268435456;
+					if(i<0||i>=j||i*l>j){throw new RE('Invalidcountvalue')}else if(i>0){s=A(++i).join(s)}
+				};
+				return s
 			};
-			return s;
-		};
+		})(w.Array,w.RangeError);
 	};
 	//..
- })(S.prototype);
+ })(win);
 
 })(window);
 
-/*
+
+
+
+
 console.clear();
 
 console.log(
@@ -51,4 +53,3 @@ console.log(
 'abc'.repeat(1/0),//RangeError: Invalid count value
 'abc'.repeat(-1)//RangeError: Invalid count value
 );
-*/
