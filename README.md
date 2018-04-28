@@ -3,6 +3,7 @@
 https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/String/repeat
 
 # algorithm
+```
 
 (w=>{
 	const A=w.Array, S=w.String, exist=(a,b,c)=>(b in a)&&(typeof(a[b])===c);
@@ -57,3 +58,4 @@ console.log(
 'abc'.repeat(-1)//RangeError: Invalid count value
 );
 
+```
