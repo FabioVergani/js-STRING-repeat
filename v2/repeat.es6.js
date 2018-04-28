@@ -1,22 +1,12 @@
 (w=>{
-	const A=w.Array, S=w.String, exist=(a,b,c)=>(b in a)&&(typeof(a[b])===c);
+	const A=w.Array,S=w.String,exist=(o,p,t)=>p in o && typeof(o[p])===t;
 
 	(o=>{
 		if(!exist(o,'repeat','function')){
 			o.repeat=function(n){
-				let i=n>>0,s=this;
+				var i=n>>0,s=this;
 				const l=s.length;
-				if(i===0||l<1){
-					s='';
-				}else{
-					const j=268435456;
-					if(i<0||i>=j||i*l>j){
-						//console.info(i);
-						throw new RangeError('Invalid count value');
-					}else if(i>0){
-						s=A(++i).join(s);
-					};
-				};
+				if(i===0||l<1){s=''}else{const j=268435456;if(i<0||i>=j||i*l>j){throw new RangeError('Invalid count value')}else if(i>0){s=A(++i).join(s)}};
 				return s;
 			};
 		};
