@@ -10,7 +10,7 @@ https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects
 	(o=>{
 		if(!exist(o,'repeat','function')){
 			o.repeat=function(n){
-				let i=n>>0,s=this;
+				var i=n>>0,s=this;
 				const l=s.length;
 				if(i===0||l<1){
 					s='';
